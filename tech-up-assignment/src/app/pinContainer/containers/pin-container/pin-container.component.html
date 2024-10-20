@@ -1,0 +1,27 @@
+<div class="pin-container">
+  <div class="button-view">
+    <button type="button" class="btn btn-primary" (click)="openCustomerModal()">
+      +Add Customer
+    </button>
+    <button type="button" class="btn btn-primary">+Add Pin</button>
+  </div>
+  <div class="table-view">
+    <table class="table table-striped-columns table-bordered">
+      <tr>
+        <th>Title</th>
+        <th>Image</th>
+        <th>Collaboratory</th>
+        <th>Privacy</th>
+      </tr>
+      <tr>
+        <td>test</td>
+        <td>test</td>
+        <td>test</td>
+        <td>test</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<ng-container *ngIf="customerModalFlag">
+  <app-customer></app-customer>
+</ng-container>
