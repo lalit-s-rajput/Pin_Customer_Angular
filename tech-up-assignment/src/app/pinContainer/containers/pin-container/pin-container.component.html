@@ -23,5 +23,5 @@
   </div>
 </div>
 <ng-container *ngIf="customerModalFlag">
-  <app-customer></app-customer>
+  <app-customer (modalClosed)="modalClosed($event)"></app-customer>
 </ng-container>
