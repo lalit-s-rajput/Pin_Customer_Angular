@@ -17,4 +17,7 @@ export class PinServiceService {
     this.customersDataArray.push(`Customer ${this.customerIndex}`);
     this.customerIndex++;
   }
+  getAllCollaborators() {
+    return this.customersDataArray;
+  }
 }

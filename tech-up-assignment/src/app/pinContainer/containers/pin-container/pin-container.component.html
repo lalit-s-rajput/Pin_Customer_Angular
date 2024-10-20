@@ -3,7 +3,9 @@
     <button type="button" class="btn btn-primary" (click)="openCustomerModal()">
       +Add Customer
     </button>
-    <button type="button" class="btn btn-primary">+Add Pin</button>
+    <button type="button" class="btn btn-primary" (click)="openPinModal()">
+      +Add Pin
+    </button>
   </div>
   <div class="table-view">
     <table class="table table-striped-columns table-bordered">
@@ -23,5 +25,8 @@
   </div>
 </div>
 <ng-container *ngIf="customerModalFlag">
-  <app-customer (modalClosed)="modalClosed($event)"></app-customer>
+  <app-customer (modalClosed)="customerModalClosed($event)"></app-customer>
+</ng-container>
+<ng-container *ngIf="customerPinFlag">
+  <app-pin (modalClosed)="pinModalClosed($event)"></app-pin>
 </ng-container>

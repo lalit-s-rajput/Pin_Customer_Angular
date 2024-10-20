@@ -43,8 +43,6 @@
               [allowClear]="true"
               [items]="regionArray"
               (select)="getRegionWiseCountry($event)"
-              optionValueField="optionId"
-              optionTextField="optionTitle"
               placeholder="Select Region"
             >
             </ngx-select>
@@ -55,8 +53,6 @@
               formControlName="country"
               [allowClear]="true"
               [items]="countryArray"
-              optionValueField="optionId"
-              optionTextField="optionTitle"
               placeholder="Select Country"
             >
             </ngx-select>

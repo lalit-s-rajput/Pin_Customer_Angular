@@ -6,10 +6,17 @@ import { Component } from '@angular/core';
 })
 export class PinContainerComponent {
   customerModalFlag = false;
+  customerPinFlag = false;
   openCustomerModal() {
     this.customerModalFlag = true;
   }
-  modalClosed(event: boolean) {
+  openPinModal() {
+    this.customerPinFlag = true;
+  }
+  customerModalClosed(event: boolean) {
     this.customerModalFlag = event;
+  }
+  pinModalClosed(event: boolean) {
+    this.customerPinFlag = event;
   }
 }
