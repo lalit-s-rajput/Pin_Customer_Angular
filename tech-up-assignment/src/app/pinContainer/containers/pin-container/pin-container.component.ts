@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 @Component({
   selector: 'app-pin-container',
   templateUrl: './pin-container.component.html',
@@ -7,7 +6,17 @@ import { Component } from '@angular/core';
 })
 export class PinContainerComponent {
   customerModalFlag = false;
+  customerPinFlag = false;
   openCustomerModal() {
-    this.customerModalFlag = !this.customerModalFlag;
+    this.customerModalFlag = true;
+  }
+  openPinModal() {
+    this.customerPinFlag = true;
+  }
+  customerModalClosed(event: boolean) {
+    this.customerModalFlag = event;
+  }
+  pinModalClosed(event: boolean) {
+    this.customerPinFlag = event;
   }
 }

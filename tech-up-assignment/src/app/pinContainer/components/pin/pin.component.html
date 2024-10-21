@@ -1,1 +1,81 @@
-<p>pin works!</p>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  #addPinModal
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addPinModalForm">
+          <div class="mb-3">
+            <label class="form-label" for="title">Title</label>
+            <input
+              id="title"
+              class="form-control"
+              type="text"
+              formControlName="title"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="region">Select Image</label>
+            <input
+              type="file"
+              formControlName="image"
+              id="imageRegion"
+              ng2FileSelect
+              [uploader]="uploader"
+              (change)="dropped($event)"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="country">Select Collaboratory</label>
+            <ngx-select
+              formControlName="collaborators"
+              [allowClear]="true"
+              [items]="collaboratorsArray"
+              placeholder="Select Collaboratory"
+            >
+            </ngx-select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="privacy">Privacy*: </label>
+            <label class="ms-2 me-3">
+              <input
+                type="radio"
+                id="privacy"
+                value="Private"
+                formControlName="privacy"
+              />
+              <span class="ms-2">Private</span>
+            </label>
+            <label>
+              <input type="radio" value="Public" formControlName="privacy" />
+              <span class="ms-2">Public</span>
+            </label>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="saveChanges()"
+              [disabled]="!addPinModalForm.valid"
+            >
+              Create Pin
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
