@@ -1,0 +1,74 @@
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  #customerModal
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="customerForm">
+          <div class="mb-3">
+            <label class="form-label" for="title">Title</label>
+            <input
+              id="title"
+              class="form-control"
+              type="text"
+              formControlName="title"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="email">Email</label>
+            <input
+              class="form-control"
+              id="email"
+              type="text"
+              formControlName="email"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="region">Region</label>
+            <ngx-select
+              formControlName="region"
+              [allowClear]="true"
+              [items]="regionArray"
+              (select)="getRegionWiseCountry($event)"
+              placeholder="Select Region"
+            >
+            </ngx-select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="country">Country</label>
+            <ngx-select
+              formControlName="country"
+              [allowClear]="true"
+              [items]="countryArray"
+              placeholder="Select Country"
+            >
+            </ngx-select>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              [disabled]="!customerForm.valid"
+              class="btn btn-primary"
+              (click)="saveChanges()"
+            >
+              Create Customer
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
