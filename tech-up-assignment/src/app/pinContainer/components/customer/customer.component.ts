@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { Modal } from 'bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { PinServiceService } from '../../services/pin-service.service';
+import { PinService } from '../../services/pin-service.service';
 import { CountryData } from '../../core/interface';
 @Component({
   selector: 'app-customer',
@@ -29,7 +29,7 @@ export class CustomerComponent implements OnInit, AfterViewInit {
     region: new FormControl('', Validators.required),
     country: new FormControl('', Validators.required),
   });
-  constructor(private service: PinServiceService) {}
+  constructor(private service: PinService) {}
   ngOnInit(): void {
     this.getRegionData();
   }

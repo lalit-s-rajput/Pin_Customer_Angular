@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class PinServiceService {
+export class PinService {
   private readonly regionURL = '';
   private readonly countryUrl = 'https://api.first.org/data/v1/countries';
   customersDataArray: string[] = [];
