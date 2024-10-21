@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { CountryData, ResultData, ResultsData } from '../core/interface';
+import { HttpClient } from '@angular/common/http';
+
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -8,6 +9,7 @@ export class PinServiceService {
   private readonly regionURL = '';
   private readonly countryUrl = 'https://api.first.org/data/v1/countries';
   customersDataArray: string[] = [];
+  pinDataArray = new BehaviorSubject<any>([]);
   customerIndex = 1;
   constructor(private http: HttpClient) {}
   getCountry() {
@@ -19,5 +21,8 @@ export class PinServiceService {
   }
   getAllCollaborators() {
     return this.customersDataArray;
+  }
+  addNewPin(pin: any) {
+    this.pinDataArray.value.push(pin);
   }
 }

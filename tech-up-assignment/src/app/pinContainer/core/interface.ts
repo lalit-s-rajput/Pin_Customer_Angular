@@ -17,3 +17,8 @@ export interface CountryData {
 export interface ResultData {
   data: { [code: string]: CountryData };
 }
+export interface PinData {
+  title?: string;
+  collaborators?: string;
+  privacy?: string;
+}
