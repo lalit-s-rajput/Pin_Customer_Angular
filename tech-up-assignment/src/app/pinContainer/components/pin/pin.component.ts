@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { Modal } from 'bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { PinServiceService } from '../../services/pin-service.service';
+import { PinService } from '../../services/pin-service.service';
 import { FileUploader } from 'ng2-file-upload';
 import { CountryData } from '../../core/interface';
 @Component({
@@ -26,10 +26,11 @@ export class PinComponent {
   modal?: Modal;
   addPinModalForm = new FormGroup({
     title: new FormControl('', Validators.required),
-    collaborators: new FormControl('', Validators.required),
+    collaborators: new FormControl([], Validators.required),
     privacy: new FormControl('Private', Validators.required),
+    image: new FormControl(null, Validators.required),
   });
-  constructor(private service: PinServiceService) {
+  constructor(private service: PinService) {
     this.uploader = new FileUploader({
       url: '',
       disableMultipart: true,

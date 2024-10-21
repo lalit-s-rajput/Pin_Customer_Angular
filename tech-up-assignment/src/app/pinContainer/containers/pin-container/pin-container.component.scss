@@ -9,4 +9,15 @@
         margin: 20px 0px;
         gap: 20px;
     }
+
+    th,
+    td {
+        height: 60px;
+        text-align: center;
+        border: 1px solid black;
+    }
+
+    .add-pin-message {
+        text-align: center;
+    }
 }

@@ -7,19 +7,30 @@
       +Add Pin
     </button>
   </div>
-  <div class="table-view">
-    <table class="table table-striped-columns table-bordered">
+  <div *ngIf="(pinList$ | async).length; else showMessage" class="table-view">
+    <h1>List of Pins</h1>
+    <table class="table table-bordered">
       <tr>
-        <th>Title</th>
-        <th>Image</th>
-        <th>Collaboratory</th>
-        <th>Privacy</th>
+        <th><strong>Title</strong></th>
+        <th><strong>Image</strong></th>
+        <th><strong>Collaboratory</strong></th>
+        <th><strong>Privacy</strong></th>
       </tr>
-      <tr>
-        <td>test</td>
-        <td>test</td>
-        <td>test</td>
-        <td>test</td>
+      <tr *ngFor="let item of pinList$ | async">
+        <td>{{ item.title }}</td>
+        <td>
+          <img
+            [src]="getImageFromLocalStorage(item.title)"
+            alt="Saved"
+            width="200"
+          />
+        </td>
+        <td>
+          <div *ngFor="let collaborator of item.collaborators">
+            {{ collaborator }}
+          </div>
+        </td>
+        <td>{{ item.privacy }}</td>
       </tr>
     </table>
   </div>
@@ -30,3 +41,6 @@
 <ng-container *ngIf="customerPinFlag">
   <app-pin (modalClosed)="pinModalClosed($event)"></app-pin>
 </ng-container>
+<ng-template #showMessage>
+  <h1 class="add-pin-message">Please add pin to see table</h1>
+</ng-template>

@@ -45,8 +45,12 @@
               [allowClear]="true"
               [items]="collaboratorsArray"
               placeholder="Select Collaboratory"
+              [multiple]="true"
             >
             </ngx-select>
+            <div class="alert alert-danger" *ngIf="!collaboratorsArray.length">
+              Please add customers first
+            </div>
           </div>
           <div class="mb-3">
             <label class="form-label" for="privacy">Privacy*: </label>
